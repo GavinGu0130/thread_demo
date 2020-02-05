@@ -21,8 +21,5 @@ public class FutureTask_Demo {
         // .get() 阻塞
         System.out.println(fTask.get());
         System.out.println("get result!");
-
-
-        
     }
 }
