@@ -27,7 +27,7 @@ class ObjPool<T, R> {
             t = pool.remove(0);
             return func.apply(t);
         } finally {
-            pool.add(t);
+//            pool.add(t);
             sem.release();
         }
     }
@@ -36,6 +36,12 @@ class ObjPool<T, R> {
         // 创建对象池
         ObjPool<Long, String> pool =
                 new ObjPool<Long, String>(10, (long)2);
+        // 通过对象池获取t，之后执行
+        pool.exec(t -> {
+            System.out.println(t);
+            return t.toString();
+        });
+
         // 通过对象池获取t，之后执行
         pool.exec(t -> {
             System.out.println(t);

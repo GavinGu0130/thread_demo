@@ -1,0 +1,42 @@
+package com.gavin.thread_demo.framework_flow_demo;
+
+import java.util.concurrent.CyclicBarrier;
+
+public class CyclicBarrierEntry {
+    private static class Worker extends Thread {
+        private CyclicBarrier cyclicBarrier;
+
+        public Worker(CyclicBarrier cyclicBarrier) {
+            this.cyclicBarrier = cyclicBarrier;
+        }
+
+        @Override
+        public void run() {
+            super.run();
+
+            try {
+                System.out.println(Thread.currentThread().getName() + "开始等待其他线程");
+                cyclicBarrier.await();
+                System.out.println(Thread.currentThread().getName() + "开始执行");
+                // 工作线程开始处理，这里用Thread.sleep()来模拟业务处理
+                Thread.sleep(1000);
+                System.out.println(Thread.currentThread().getName() + "执行完毕");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    public static void main(String[] args) {
+        int threadCount = 3;
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(threadCount,()->{System.out.println("All Thread is ready");});
+
+        for (int i = 0; i < threadCount; i++) {
+            System.out.println("创建工作线程" + i);
+            Worker worker = new Worker(cyclicBarrier);
+            worker.start();
+        }
+
+    }
+}
