@@ -17,7 +17,7 @@ import java.util.List;
 public class VolatileEntry {
     volatile int count = 0;
 
-    public void increase(){
+    public /*synchronized*/ void increase(){
         for (int i=0; i< 10000; i++){
             count++;
         }

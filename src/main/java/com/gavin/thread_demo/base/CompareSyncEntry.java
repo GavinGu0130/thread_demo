@@ -5,8 +5,11 @@ import java.util.concurrent.atomic.LongAdder;
 
 /**
  *
- * 比较 synchronized & Atomic & LongAdder
+ * 场景：比较 synchronized & Atomic & LongAdder
  * 结论(高并发场景下的性能)：LongAdder > Atomic > Synchronized
+ * 原因；
+ * 1. LongAdder 使用分段锁技术 => 划分若干块 + 最终汇总
+ * 2. Atomic 使用 CAS（无锁方案）
  *
  */
 public class CompareSyncEntry {
