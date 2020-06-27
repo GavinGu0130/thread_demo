@@ -1,10 +1,16 @@
-package com.gavin.thread_demo.framework_flow_demo;
+package com.gavin.thread_demo.advance;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-public class CountDownLatchEntry {
+/**
+ *
+ * 使用 CountDownLatch
+ * 适用场景：多个业务同时并发执行，没有先后顺序，等待直到所有业务执行完毕，再执行后续操作
+ *
+ */
+public class CountDownLatchBEntry {
 
     public static void main(String[] args) throws InterruptedException {
         CountDownLatch countDown = new CountDownLatch(3);

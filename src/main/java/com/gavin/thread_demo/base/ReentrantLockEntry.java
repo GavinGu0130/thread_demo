@@ -6,8 +6,9 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  *
- * 1. ReentrantLock 的标准写法（finally必须，释放锁）
+ * 1. ReentrantLock 的标准写法（finally必须，释放锁）[try{lock.lock()}finally{lock.unlock}]
  * 2. 可重入
+ *
  *
  */
 public class ReentrantLockEntry {
@@ -21,7 +22,7 @@ public class ReentrantLockEntry {
 
     public void syncMethodOne(){
         try{
-            lock.lock();
+            lock.lock();    //  = synchronized(this)
             System.out.println("I'm a syncMethodOne");
 
             //  模拟多线程并发

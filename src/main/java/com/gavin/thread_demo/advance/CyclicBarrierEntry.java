@@ -1,4 +1,4 @@
-package com.gavin.thread_demo.framework_flow_demo;
+package com.gavin.thread_demo.advance;
 
 import java.util.concurrent.CyclicBarrier;
 
