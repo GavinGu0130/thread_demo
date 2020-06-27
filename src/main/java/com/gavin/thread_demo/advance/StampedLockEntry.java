@@ -1,4 +1,4 @@
-package com.gavin.thread_demo.stampedlock_demo;
+package com.gavin.thread_demo.advance;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
